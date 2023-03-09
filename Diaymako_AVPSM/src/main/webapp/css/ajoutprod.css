@@ -1,0 +1,614 @@
+@charset "UTF-8";
+   
+body
+{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+ /* *********************** header *************************** */
+ .header
+ {
+     display: flex;
+     flex-wrap: wrap;
+ }
+ 
+ .logo
+ {
+    flex: 0 0 auto;
+    width: 100%;
+ }
+ 
+ .imlogo
+ {
+     float: left;
+     margin-left:2%;
+     width: 100px;
+ }
+ 
+ .im_resp
+ {
+     max-width: 100%;
+     height: auto;
+ }
+ 
+ .espace_panier
+ {
+     float: right;
+     align-items: center;
+     display: flex;
+     justify-content: center;
+ 
+ }
+ 
+ a
+ {
+     text-decoration: none;
+ }
+ 
+ a:hover
+ {
+     cursor: pointer;
+ }
+ .espace,.panier 
+ {
+     
+     margin: 15px;
+    padding: 10px;
+     width: auto;
+     border: none;
+     display: block;
+     outline: 0;
+     background-color:black;
+     color:white;
+     text-align: center;
+     cursor: pointer;
+     font-size: 18px;
+     font-weight: bold;
+     margin-top: 10%;
+ }
+ 
+ .espace:hover,.panier:hover
+ {
+     color: black;
+     background-color: white;
+     /* border: 1px solid black; */
+     font-family: Pacifico, cursive;
+     
+ }
+
+ 
+ 
+ 
+  /* *********************** Barre de nav *************************** */
+ 
+ .nav 
+ {
+     margin-top: 6%;
+     background-color:black;
+     width: 100%;
+     position: relative;
+     align-items: center;
+     display: flex;
+     justify-content: center;
+     flex-wrap: inherit;
+      z-index: 1; /*li aka ame solo khawnama dofloo */
+ }
+ 
+ 
+ .sticky 
+ {
+     position: fixed;
+     top: -82px;
+     background-color: rgba(0, 0, 0, 0.712);
+ }
+ 
+ 
+ .nav a 
+ {
+     float: left;
+     color: white;
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+     font-size: 20px;
+     font-weight: bold;
+ }
+ 
+ .nav .icon 
+ {
+     /*icon du menu hamburger */
+     display: none;
+ }
+ 
+ .deroulant 
+ {
+     overflow: hidden;
+ }
+ 
+ 
+ .deroulant .btn_deroulant 
+ {
+     font-size: 20px;
+     font-weight: bold;
+     border: none;
+     outline: none;
+     color: white;
+     padding: 14px 16px;
+     background-color: inherit;
+     font-family: inherit;
+     margin: 0;
+ }
+ 
+ 
+ .deroulant-content {
+     display: none;
+     position: absolute;
+     background-color: #f9f9f9;
+     min-width: 160px;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+     z-index: 1;
+ }
+ 
+ 
+ .deroulant-content a 
+ {
+     float: none;
+     color: black;
+     padding: 12px 16px;
+     text-decoration: none;
+     display: block;
+     text-align: left;
+ }
+ 
+ .nav a:hover,
+ .deroulant:hover .btn_deroulant 
+ {
+     background-color:black;
+     color: white;
+     font-family: Pacifico, cursive;
+     font-size: 20px;
+ }
+ 
+ .deroulant-content a:hover 
+ {
+     background-color: black;
+     color:white;
+     cursor: pointer;
+ 
+ }
+ 
+ .deroulant:hover .deroulant-content 
+ {
+     display: block;
+ }
+ 
+ 
+ .imlogoresponsive,.espace_pagner_cacher
+ {
+     display: none;
+ }
+ 
+ @media screen and (max-width: 600px) 
+ {
+     .nav 
+     {
+         display: block;
+         margin-top: -56px;
+         position: fixed;
+ 
+     }
+ 
+     .sticky
+     {
+         position: fixed;
+         top: 56px;
+         /* z-index: 1; */
+     } 
+    
+     .nav a:not(:first-child),
+     .deroulant .btn_deroulant 
+     {
+         display: none;
+     }
+ 
+ 
+     .nav a.icon 
+     {
+         float: right;
+         display: block;
+         font-size: 22px;
+     }
+ }
+ 
+ @media screen and (max-width: 600px) {
+ 
+     .logo,.espace_panier
+     {
+       display: none;
+     } 
+ 
+     .nav.responsive .icon 
+     {
+         position: absolute;
+         right: 0;
+         top: 0;
+     }
+ 
+     .espace_pagner_cacher
+     {
+         display: block;
+     }
+      
+     a.imlogoresponsive
+     {
+         display: block;
+         width: 15%;
+         padding: 9px;
+     }
+     
+     .nav.responsive a 
+     {
+         float: none;
+         display: block;
+         text-align: left;
+     }
+ 
+     .nav.responsive .deroulant 
+     {
+         float: none;
+     }
+ 
+     .nav.responsive .deroulant-content 
+     {
+         position: relative;
+     }
+ 
+     .nav.responsive .deroulant .btn_deroulant 
+     {
+         display: block;
+         width: 100%;
+         text-align: left;
+     }
+ }
+ 
+ 
+ @media (prefers-reduced-motion: no-preference) 
+ {
+     html {
+         scroll-behavior: smooth;
+     }
+ }
+
+ 
+
+/* *******************************       Les articles les mieux vendus       ******************************* */
+
+.hr 
+{
+    align-items: center;
+    display: flex;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.hr::before,
+.hr::after 
+{
+    background: black;
+    flex: 1;
+    content: "";
+    height: .025em;
+    margin: 0 .5em;
+}
+
+@media screen and (max-width: 600px) 
+{
+    .hr
+    {
+        font-size: 15px;
+    }
+
+}
+
+
+.card-img-top
+{
+    max-width: 100%;
+}
+.container
+{
+   
+    width: 80%;
+      margin-left:auto;
+      margin-right: auto;
+      align-items: center;
+      justify-content: center;
+      /* pour avoir 4 par ligne */
+      display: grid;
+      gap: 20px 15px;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+    
+.card
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white ;
+    padding: 20px 0px; 
+    margin: 3px;
+    border-radius: 10px;
+
+}
+.card:hover
+{
+    box-shadow: 0px 5px 15px rgb(156, 156, 156);
+    transform: scale(1.1);
+    cursor: pointer;
+
+}
+
+
+.prix
+{
+   font-size: 20px;
+    border-width: 1px;
+   
+    font-weight: bold;
+    font-size: 20px;
+    color:black
+    
+
+} 
+
+.prix,.line1
+{
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 25px;
+}
+
+.nomProd
+{
+    color:black;
+    /* font-weight:700; */
+    font-size: 20px;
+    font-weight: 600;
+}
+ 
+
+ 
+@media screen and (max-width: 600px) 
+{
+ 
+     .container
+    {
+      /* grid-template-columns: none; */
+      grid-template-columns: 1fr 1fr;
+
+    } 
+     .card
+    {
+        width: 100%;
+    } 
+   
+}
+
+
+
+/* *******************************       Le FOOTER       ******************************* */
+       
+
+footer 
+{
+    background-color: black;
+    width: 100%;
+    align-items: center;
+	display: flex;
+    justify-content: center;
+}
+
+footer .social 
+{
+  text-align: center;
+  padding-bottom: 25px;
+  color: whites;
+  float: right;
+}
+
+footer .social a 
+{
+  font-size: 22px;
+  color: inherit;
+  border: 1px solid white;
+  width: 40px;
+  height: 38px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  margin-top: 15px;
+  margin-left: 5px;
+  color: white;
+}
+
+
+footer ul {
+  margin-top: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 0;
+  color: white;
+  float: left;
+}
+
+footer ul a 
+{
+  color: white;
+  text-decoration: none;
+}
+
+footer ul li 
+{
+    
+  display: inline-block;
+  padding: 0 15px;
+}
+
+footer ul a:hover 
+{
+     color:white;
+     font-family: Pacifico, cursive;
+}
+
+footer .copyright 
+{
+  margin-left: 80px;
+  margin-right:80px;
+  text-align: center;
+  font-size: 13px;
+  color:white;
+}
+
+.copyright2
+{
+    display: none;
+    font-size: 13px;
+    color:white;
+}
+
+
+
+@media screen and (max-width: 600px) 
+{
+      .copyright
+      {
+        display: none;
+      }
+      .copyright2
+    {
+        display: block;
+        font-size: 10px;
+        color:white;
+    }
+  
+}
+
+
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+  margin-top: 30px;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: black;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+  margin-top: 30px;
+
+}
+
+form.example button:hover {
+  background:grey;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+.notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover {
+  background: red;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+h1
+{
+    position: absolute;
+    right: 1100px;
+}
+
+a.button {
+  background-color:black;
+  color:white;
+  font-size: 18px;
+  text-decoration:none;
+  padding:3px;
+}
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 1000px; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color:black;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color:grey;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
