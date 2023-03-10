@@ -8,6 +8,6 @@
 </head>
 <body>
  <h1>ERRROR</h1>
- <a href="login.jsp">retour a l'accuei</a>
+ <a href="login.jsp">retour a l'accueil</a>
 </body>
 </html>
